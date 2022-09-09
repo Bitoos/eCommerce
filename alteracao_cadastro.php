@@ -44,7 +44,7 @@
         <main>  
             <div id="janela_formulario">
                 <form action="alteracao_cadastro.php" method="post">
-                    <h2>Alteração da transportadora</h2>
+                    <h2>Alteração de cadastro</h2>
 
                     <label for="nomecliente">Nome do cliente</label>
                     <input type="text" value="<?php echo $info_cliente["nomecliente"]?>" name="nomecliente">
