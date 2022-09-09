@@ -1,20 +1,39 @@
 <?php require_once("conexao/conexao.php"); 
     $cliente = "SELECT * FROM cliente ";
 
-    if (isset($_POST["email"])){
-        print_r($_POST);
+    session_start();
+
+    if (!isset($_SESSION["user_portal"])){
+        header("location:login.php");
     }
 
 
 
+    if (isset($_POST["email"])){
+        $nome       = $_POST["nomecliente"];
+        $email   = $_POST["email"];
+        $usuario     = $_POST["usuario"];
+        $senha     = $_POST["senha"];
+        $cID        = $_POST["idCliente"];
+        $statuscliente = $_POST["statuscliente"];
+
+        $alterar    = "UPDATE cliente SET nomecliente = '{$nome}', email = '{$email}', usuario = '$usuario', senha = '{$senha}', statuscliente = '{$statuscliente}' WHERE idCliente = '{$cID}'";
+
+        $operacao_alteracao = mysqli_query($conecta,$alterar);
+        if (! $operacao_alteracao){
+            die("erro no banco");
+        }else{
+            header("location:listagem_cadastro.php");
+        }
+    }
 
 
-
+    
     if(isset($_GET["codigo"])){
         $id= $_GET["codigo"];
         $cliente .=" WHERE idCliente = {$id}";
     }else{
-   //     header("location:listagem.php");
+        header("location:listagem_cadastro.php");
     }
 
     $con_cliente = mysqli_query($conecta,$cliente);

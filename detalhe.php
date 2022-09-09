@@ -9,7 +9,7 @@
     if ( isset($_GET["codigo"]) ) {
         $produto_id = $_GET["codigo"];
     } else {
-        Header("Location: inicial.php");
+        Header("Location: login.php");
     }
 
     // Consulta ao banco de dados
@@ -56,6 +56,8 @@
                     <li><b>Descrição: </b><?php echo $descricao ?></li>
                     <li><b>Preço Revenda: </b><?php echo real_format($valorproduto) ?></li>
                     <li><b>Estoque: </b><?php echo $estoque ?></li>
+                    
+                    <li><a href="alteracao_produto.php?codigo=<?php echo $produtoID ?>">Alterar</a></li>
                 </ul>
                
             </div>

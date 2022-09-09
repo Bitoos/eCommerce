@@ -33,6 +33,7 @@
                     while($linha = mysqli_fetch_assoc($consulta_tr)) {
                 ?>
                 <ul>
+                    <li><?php echo $linha["nomecliente"] ?></li>
                     <li><?php echo $linha["usuario"] ?></li>
                     <li><?php echo $linha["email"]?></li>
                     <li><?php echo $linha["statuscliente"] ?></li>

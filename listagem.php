@@ -45,9 +45,9 @@
             </div>
             
             <div id="listagem_produtos"> 
-            <?php
-                while($linha = mysqli_fetch_assoc($resultado)) {
-            ?>
+                <?php
+                    while($linha = mysqli_fetch_assoc($resultado)) {
+                ?>
                 <ul>
                     <li class="imagem">
                         <a href="detalhe.php?codigo=<?php echo $linha['idProduto'] ?>">
